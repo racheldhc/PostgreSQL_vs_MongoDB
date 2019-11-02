@@ -61,4 +61,44 @@ MONGO
 2. delete the movie "Avatar"
     WriteResult({ "nRemoved" : 1 })
 
+8) Querying related collections
+1. find all users 
+    { "_id" : ObjectId("5db5ba1c821cbb57895f9a02"), "username" : "GoodGuyGreg", "first_name" : "Good Guy", "last_name" : "Greg" }
+    { "_id" : ObjectId("5db9b47f821cbb57895f9a04"), "username" : "ScumbagSteve", "full_name" : [ { "first" : "Scumbag" }, { "last" : "Steve" } ] }
+2. find all posts 
+    { "_id" : ObjectId("5db9b647821cbb57895f9a05"), "username" : "GoodGuyGreg", "title" : "Passes out at party", "body" : "Wakes up early and cleans the house" }
+    { "_id" : ObjectId("5db9b81e821cbb57895f9a06"), "username" : "GoodGuyGreg", "title" : "Steals your identity", "body" : "Raises your credit score" }
+    { "_id" : ObjectId("5db9b847821cbb57895f9a07"), "username" : "GoodGuyGreg", "title" : "Reports a bug in your code", "body" : "Sends you a Pull Request" }
+    { "_id" : ObjectId("5db9b937821cbb57895f9a08"), "username" : "ScumbagSteve", "title" : "Borrows something", "body" : "Sells it" }
+    { "_id" : ObjectId("5db9ba2f821cbb57895f9a09"), "username" : "ScumbagSteve", "title" : "Borrows everything", "body" : "The end" }
+    { "_id" : ObjectId("5db9ba52821cbb57895f9a0a"), "username" : "ScumbagSteve", "title" : "Forks your repo on github", "body" : "Sets to private" }
+3. find all posts that was authored by "GoodGuyGreg" 
+    { "_id" : ObjectId("5db9b647821cbb57895f9a05"), "username" : "GoodGuyGreg", "title" : "Passes out at party", "body" : "Wakes up early and cleans the house" }
+    { "_id" : ObjectId("5db9b81e821cbb57895f9a06"), "username" : "GoodGuyGreg", "title" : "Steals your identity", "body" : "Raises your credit score" }
+    { "_id" : ObjectId("5db9b847821cbb57895f9a07"), "username" : "GoodGuyGreg", "title" : "Reports a bug in your code", "body" : "Sends you a Pull Request" }
+4. find all posts that was authored by "ScumbagSteve" 
+    { "_id" : ObjectId("5db9b937821cbb57895f9a08"), "username" : "ScumbagSteve", "title" : "Borrows something", "body" : "Sells it" }
+    { "_id" : ObjectId("5db9ba2f821cbb57895f9a09"), "username" : "ScumbagSteve", "title" : "Borrows everything", "body" : "The end" }
+    { "_id" : ObjectId("5db9ba52821cbb57895f9a0a"), "username" : "ScumbagSteve", "title" : "Forks your repo on github", "body" : "Sets to private" }
+5. find all comments 
+    { "_id" : ObjectId("5db9bcba821cbb57895f9a0c"), "username" : "GoodGuyGreg", "comment" : "Hope you got a good deal", "post" : { "$ref" : "posts", "id" : ObjectId("5db9b937821cbb57895f9a08") } }
+    { "_id" : ObjectId("5db9bcfe821cbb57895f9a0d"), "username" : "GoodGuyGreg", "comment" : "Whats mine is yours", "post" : { "$ref" : "posts", "id" : ObjectId("5db9ba2f821cbb57895f9a09") } }
+    { "_id" : ObjectId("5db9bd3e821cbb57895f9a0e"), "username" : "GoodGuyGreg", "comment" : "Don't violate the licensing agreement!", "post" : { "$ref" : "posts", "id" : ObjectId("5db9ba52821cbb57895f9a0a") } }
+    { "_id" : ObjectId("5db9bdf8821cbb57895f9a0f"), "username" : "ScumbagSteve", "comment" : "It still isn't clean", "post" : { "$ref" : "posts", "id" : ObjectId("5db9b647821cbb57895f9a05") } }
+    { "_id" : ObjectId("5db9beae821cbb57895f9a10"), "username" : "ScumbagSteve", "comment" : "Denied your PR cause I found a hack", "post" : { "$ref" : "posts", "id" : ObjectId("5db9b847821cbb57895f9a07") } }
+6. find all comments that was authored by "GoodGuyGreg" 
+    { "_id" : ObjectId("5db9bcba821cbb57895f9a0c"), "username" : "GoodGuyGreg", "comment" : "Hope you got a good deal", "post" : { "$ref" : "posts", "id" : ObjectId("5db9b937821cbb57895f9a08") } }
+    { "_id" : ObjectId("5db9bcfe821cbb57895f9a0d"), "username" : "GoodGuyGreg", "comment" : "Whats mine is yours", "post" : { "$ref" : "posts", "id" : ObjectId("5db9ba2f821cbb57895f9a09") } }
+    { "_id" : ObjectId("5db9bd3e821cbb57895f9a0e"), "username" : "GoodGuyGreg", "comment" : "Don't violate the licensing agreement!", "post" : { "$ref" : "posts", "id" : ObjectId("5db9ba52821cbb57895f9a0a") } }
+7. find all comments that was authored by "ScumbagSteve" 
+    { "_id" : ObjectId("5db9bdf8821cbb57895f9a0f"), "username" : "ScumbagSteve", "comment" : "It still isn't clean", "post" : { "$ref" : "posts", "id" : ObjectId("5db9b647821cbb57895f9a05") } }
+    { "_id" : ObjectId("5db9beae821cbb57895f9a10"), "username" : "ScumbagSteve", "comment" : "Denied your PR cause I found a hack", "post" : { "$ref" : "posts", "id" : ObjectId("5db9b847821cbb57895f9a07") } }
+8. find all comments belonging to the post "Reports a bug in your code"
+
+
+
+
+
+
+
 
