@@ -50,3 +50,12 @@ db.comments.insert({username : "GoodGuyGreg", comment : "Whats mine is yours", p
 db.comments.insert({username : "GoodGuyGreg", comment : "Don't violate the licensing agreement!", post : {$ref : "posts", id : ObjectId("5db9ba52821cbb57895f9a0a")}})
 db.comments.insert({username : "ScumbagSteve", comment : "It still isn't clean", post : {$ref : "posts", id : ObjectId("5db9b647821cbb57895f9a05")}})
 db.comments.insert({username : "ScumbagSteve", comment : "Denied your PR cause I found a hack", post : {$ref : "posts", id : ObjectId("5db9b847821cbb57895f9a07")}})
+
+// Quering related collections
+db.users.find()
+db.posts.find()
+db.posts.find({username: "GoodGuyGreg"})
+db.posts.find({username: "ScumbagSteve"})
+db.comments.find()
+db.comments.find({username: "GoodGuyGreg"})
+var test = db.posts.find({title : "Reports a bug in your code"})
