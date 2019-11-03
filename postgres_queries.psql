@@ -51,3 +51,13 @@ insert into posts(username, title, body) values ('ScumbagSteve', 'Borrows someth
 create table comments(id serial primary key, username varchar (50), comment text, post int, foreign key (post) references posts(id));
 insert into comments(username, comment, post) values ('GoodGuyGreg', 'Hope you got a good deal!', 4), ('GoodGuyGreg', 'What''s mine is yours!', 5), ('GoodGuyGreg', 'Don''t violate the licensing agreement!', 6);
 insert into comments(username, comment, post) values ('ScumbagSteve', 'It still isn''t clean', 1), ('ScumbagSteve', 'Denied your PR cause I found a hack', 3);
+
+-- Relationship queries
+select * from users;
+select * from posts;
+select * from posts where username = 'GoodGuyGreg';
+select * from posts where username = 'ScumbagSteve';
+select * from comments;
+select * from comments where username = 'GoodGuyGreg';
+select * from comments where username = 'ScumbagSteve';
+select * from comments where post = (select id from posts where title = 'Reports a bug in your code');

@@ -228,3 +228,62 @@ POSTGRES
     The Hobbit: The Desolation of Smaug
     Pulp Fiction
     (6 rows)
+
+8)	Querying related collections
+1. find all users 
+      username   | first_name | last_name 
+    --------------+------------+-----------
+    GoodGuyGreg  | Good Guy   | Greg
+    ScumbagSteve | Scumbag    | Steve
+    (2 rows)
+2. find all posts 
+    id |   username   |           title            |              body               
+    ----+--------------+----------------------------+---------------------------------
+     1 | GoodGuyGreg  | Passes out at party        | Wakes up early and cleans house
+     2 | GoodGuyGreg  | Steals your identity       | Raises your credit score
+     3 | GoodGuyGreg  | Reports a bug in your code | Sends you a Pull Request
+     4 | ScumbagSteve | Borrows something          | Sells it
+     5 | ScumbagSteve | Borrows everything         | The end
+     6 | ScumbagSteve | Forks your repo on github  | Sets to private
+    (6 rows)
+3. find all posts that was authored by "GoodGuyGreg" 
+    id |  username   |           title            |              body               
+    ----+-------------+----------------------------+---------------------------------
+     1 | GoodGuyGreg | Passes out at party        | Wakes up early and cleans house
+     2 | GoodGuyGreg | Steals your identity       | Raises your credit score
+     3 | GoodGuyGreg | Reports a bug in your code | Sends you a Pull Request
+    (3 rows)
+4. find all posts that was authored by "ScumbagSteve" 
+    id |   username   |           title           |      body       
+    ----+--------------+---------------------------+-----------------
+     4 | ScumbagSteve | Borrows something         | Sells it
+     5 | ScumbagSteve | Borrows everything        | The end
+     6 | ScumbagSteve | Forks your repo on github | Sets to private
+    (3 rows)
+5. find all comments 
+    id |   username   |                comment                 | post 
+    ----+--------------+----------------------------------------+------
+     1 | GoodGuyGreg  | Hope you got a good deal!              |    4
+     2 | GoodGuyGreg  | What's mine is yours!                  |    5
+     3 | GoodGuyGreg  | Don't violate the licensing agreement! |    6
+     4 | ScumbagSteve | It still isn't clean                   |    1
+     5 | ScumbagSteve | Denied your PR cause I found a hack    |    3
+    (5 rows)
+6. find all comments that was authored by "GoodGuyGreg" 
+    id |  username   |                comment                 | post 
+    ----+-------------+----------------------------------------+------
+     1 | GoodGuyGreg | Hope you got a good deal!              |    4
+     2 | GoodGuyGreg | What's mine is yours!                  |    5
+     3 | GoodGuyGreg | Don't violate the licensing agreement! |    6
+    (3 rows)
+7. find all comments that was authored by "ScumbagSteve" 
+    id |   username   |               comment               | post 
+    ----+--------------+-------------------------------------+------
+     4 | ScumbagSteve | It still isn't clean                |    1
+     5 | ScumbagSteve | Denied your PR cause I found a hack |    3
+    (2 rows)
+8. find all comments belonging to the post "Reports a bug in your code"
+    id |   username   |               comment               | post 
+    ----+--------------+-------------------------------------+------
+     5 | ScumbagSteve | Denied your PR cause I found a hack |    3
+    (1 row)
