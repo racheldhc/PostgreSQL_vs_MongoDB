@@ -29,3 +29,7 @@ select title, synopsis from movies where synopsis ilike '%Gandalf%';
 select title, synopsis from movies where synopsis ilike '%Bilbo%' and synopsis not ilike '%Gandalf%';
 select title, synopsis from movies where franchise = 'The Hobbit';
 select title, synopsis from movies where synopsis ilike '%gold%' and synopsis ilike '%dragon%';
+
+
+-- Deletes
+delete from movies where title = 'Pee Wee Herman''s Big Adventure';

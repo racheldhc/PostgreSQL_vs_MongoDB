@@ -201,3 +201,30 @@ POSTGRES
     -----------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
     The Hobbit: An Unexpected Journey | A reluctant hobbit, Bilbo Baggins, sets out to the Lonely Mountain with a spirited group of dwarves to reclaim their mountain home - and the gold within it - from the dragon Smaug.
     (1 row)
+
+6)	Delete Documents
+1. delete the movie "Pee Wee Herman's Big Adventure"
+    DELETE 1
+    (select title from movies;)
+                    title                   
+    -------------------------------------------
+    Fight Club
+    Inglorious Basterds
+    The Hobbit: The Battle of the Five Armies
+    Avatar
+    The Hobbit: An Unexpected Journey
+    The Hobbit: The Desolation of Smaug
+    Pulp Fiction
+    (7 rows)
+2. delete the movie "Avatar"
+    DELETE 1
+    (select title from movies;)
+                    title                   
+    -------------------------------------------
+    Fight Club
+    Inglorious Basterds
+    The Hobbit: The Battle of the Five Armies
+    The Hobbit: An Unexpected Journey
+    The Hobbit: The Desolation of Smaug
+    Pulp Fiction
+    (6 rows)
