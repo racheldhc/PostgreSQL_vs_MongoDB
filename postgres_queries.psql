@@ -14,3 +14,11 @@ select * from movies where actors @> '{"Brad Pitt"}';
 select * from movies where franchise = 'The Hobbit';
 select * from movies where year >= 1990 and year < 2000;
 select * from movies where year < 2000 or year > 2010;
+
+-- Updates
+update movies set synopsis = 'A reluctant hobbit, Bilbo Baggins, sets out to the Lonely Mountain with a spirited group of dwarves to reclaim their mountain home - and the gold within it - from the dragon Smaug.' where title = 'The Hobbit: An Unexpected Journey';
+update movies set synopsis = 'The dwarves, along with Bilbo Baggins and Gandalf the Grey, continue their quest to reclaim Erebor, their homeland, from Smaug. Bilbo Baggins is in possession of a mysterious and magical ring.' where title = 'The Hobbit: The Desolation of Smaug';
+    -- adding to array https://stackoverflow.com/questions/11007800/postgres-array-append-array-length-for-array-push
+update movies set actors = array_append(actors, 'Samuel L. Jackson') where title = 'Pulp Fiction';
+
+

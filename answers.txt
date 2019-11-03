@@ -149,3 +149,24 @@ POSTGRES
     6 | The Hobbit: The Battle of the Five Armies | J.R.R. Tolkein    | 2012 |                                 | The Hobbit | Bilbo and Company are forced to engage in a war against an array of combatants and keep the Lonely Mountain from falling into the hands of a rising darkness.
     (5 rows)
 
+4) Update Documents
+1. add a synopsis to "The Hobbit: An Unexpected Journey" : "A reluctant hobbit, Bilbo Baggins, sets out to the Lonely Mountain with a spirited group of dwarves to reclaim their mountain home - and the gold within it - from the dragon Smaug." 
+    UPDATE 1
+    (select title, synopsis from movies where title = 'The Hobbit: An Unexpected Journey');
+                title               |                                                                                       synopsis                                                                                       
+    -----------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+    The Hobbit: An Unexpected Journey | A reluctant hobbit, Bilbo Baggins, sets out to the Lonely Mountain with a spirited group of dwarves to reclaim their mountain home - and the gold within it - from the dragon Smaug.
+    (1 row)
+2. add a synopsis to "The Hobbit: The Desolation of Smaug" : "The dwarves, along with Bilbo Baggins and Gandalf the Grey, continue their quest to reclaim Erebor, their homeland, from Smaug. Bilbo Baggins is in possession of a mysterious and magical ring." 
+    UPDATE 1
+                    title                |                                                                                             synopsis                                                                                             
+    -------------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+    The Hobbit: The Desolation of Smaug | The dwarves, along with Bilbo Baggins and Gandalf the Grey, continue their quest to reclaim Erebor, their homeland, from Smaug. Bilbo Baggins is in possession of a mysterious and magical ring.
+    (1 row)
+3. add an actor named "Samuel L. Jackson" to the movie "Pulp Fiction"
+    UPDATE 1
+    (select title, actors from movies where title = 'Pulp Fiction';)
+        title     |                       actors                        
+    --------------+-----------------------------------------------------
+    Pulp Fiction | {"John Travolta","Uma Thurman","Samuel L. Jackson"}
+    (1 row)
