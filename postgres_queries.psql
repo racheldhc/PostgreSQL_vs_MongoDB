@@ -33,3 +33,21 @@ select title, synopsis from movies where synopsis ilike '%gold%' and synopsis il
 
 -- Deletes
 delete from movies where title = 'Pee Wee Herman''s Big Adventure';
+
+
+-- Create and add to users table
+create table users(username varchar(50) primary key, first_name varchar (50), last_name varchar(50));
+insert into users values ('GoodGuyGreg', 'Good Guy', 'Greg');
+insert into users values ('ScumbagSteve', 'Scumbag', 'Steve');
+
+
+-- Create and add to posts table
+create table posts(id serial primary key, username varchar(50), title varchar(255), body text);
+insert into posts(username, title, body) values ('GoodGuyGreg', 'Passes out at party', 'Wakes up early and cleans house'), ('GoodGuyGreg', 'Steals your identity', 'Raises your credit score'), ('GoodGuyGreg', 'Reports a bug in your code', 'Sends you a Pull Request');
+insert into posts(username, title, body) values ('ScumbagSteve', 'Borrows something', 'Sells it'), ('ScumbagSteve', 'Borrows everything', 'The end'), ('ScumbagSteve', 'Forks your repo on github', 'Sets to private');
+
+
+-- Create and add to comments table
+create table comments(id serial primary key, username varchar (50), comment text, post int, foreign key (post) references posts(id));
+insert into comments(username, comment, post) values ('GoodGuyGreg', 'Hope you got a good deal!', 4), ('GoodGuyGreg', 'What''s mine is yours!', 5), ('GoodGuyGreg', 'Don''t violate the licensing agreement!', 6);
+insert into comments(username, comment, post) values ('ScumbagSteve', 'It still isn''t clean', 1), ('ScumbagSteve', 'Denied your PR cause I found a hack', 3);
