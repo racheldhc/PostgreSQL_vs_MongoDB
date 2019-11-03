@@ -46,6 +46,7 @@ db.posts.insert({username : "ScumbagSteve", title : "Borrows everything", body :
 db.posts.insert({username : "ScumbagSteve", title : "Forks your repo on github", body : "Sets to private"})
 
 // Creating comments collection 
+// referenced notes from class for referencing
 db.comments.insert({username : "GoodGuyGreg", comment : "Hope you got a good deal", post : {$ref : "posts", id : ObjectId("5db9b937821cbb57895f9a08")}})
 db.comments.insert({username : "GoodGuyGreg", comment : "Whats mine is yours", post : {$ref : "posts", id : ObjectId("5db9ba2f821cbb57895f9a09")}})
 db.comments.insert({username : "GoodGuyGreg", comment : "Don't violate the licensing agreement!", post : {$ref : "posts", id : ObjectId("5db9ba52821cbb57895f9a0a")}})
