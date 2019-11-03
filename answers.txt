@@ -170,3 +170,34 @@ POSTGRES
     --------------+-----------------------------------------------------
     Pulp Fiction | {"John Travolta","Uma Thurman","Samuel L. Jackson"}
     (1 row)
+
+5)	Text Search
+1. find all movies that have a synopsis that contains the word "Bilbo" 
+                    title                     |                                                                                             synopsis                                                                                             
+    -------------------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+    The Hobbit: The Battle of the Five Armies | Bilbo and Company are forced to engage in a war against an array of combatants and keep the Lonely Mountain from falling into the hands of a rising darkness.
+    The Hobbit: An Unexpected Journey         | A reluctant hobbit, Bilbo Baggins, sets out to the Lonely Mountain with a spirited group of dwarves to reclaim their mountain home - and the gold within it - from the dragon Smaug.
+    The Hobbit: The Desolation of Smaug       | The dwarves, along with Bilbo Baggins and Gandalf the Grey, continue their quest to reclaim Erebor, their homeland, from Smaug. Bilbo Baggins is in possession of a mysterious and magical ring.
+    (3 rows)
+2. find all movies that have a synopsis that contains the word "Gandalf" 
+                    title               |                                                                                             synopsis                                                                                             
+    -------------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+    The Hobbit: The Desolation of Smaug | The dwarves, along with Bilbo Baggins and Gandalf the Grey, continue their quest to reclaim Erebor, their homeland, from Smaug. Bilbo Baggins is in possession of a mysterious and magical ring.
+    (1 row)
+3. find all movies that have a synopsis that contains the word "Bilbo" and not the word "Gandalf" 
+                    title                     |                                                                                       synopsis                                                                                       
+    -------------------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+    The Hobbit: The Battle of the Five Armies | Bilbo and Company are forced to engage in a war against an array of combatants and keep the Lonely Mountain from falling into the hands of a rising darkness.
+    The Hobbit: An Unexpected Journey         | A reluctant hobbit, Bilbo Baggins, sets out to the Lonely Mountain with a spirited group of dwarves to reclaim their mountain home - and the gold within it - from the dragon Smaug.
+    (2 rows)
+4. find all movies that have a synopsis that contains the word "dwarves" or "hobbit" 
+                    title               |                                                                                             synopsis                                                                                             
+    -------------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+    The Hobbit: An Unexpected Journey   | A reluctant hobbit, Bilbo Baggins, sets out to the Lonely Mountain with a spirited group of dwarves to reclaim their mountain home - and the gold within it - from the dragon Smaug.
+    The Hobbit: The Desolation of Smaug | The dwarves, along with Bilbo Baggins and Gandalf the Grey, continue their quest to reclaim Erebor, their homeland, from Smaug. Bilbo Baggins is in possession of a mysterious and magical ring.
+    (2 rows)
+5. find all movies that have a synopsis that contains the word "gold" and "dragon"
+                    title             |                                                                                       synopsis                                                                                       
+    -----------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+    The Hobbit: An Unexpected Journey | A reluctant hobbit, Bilbo Baggins, sets out to the Lonely Mountain with a spirited group of dwarves to reclaim their mountain home - and the gold within it - from the dragon Smaug.
+    (1 row)

@@ -22,3 +22,10 @@ update movies set synopsis = 'The dwarves, along with Bilbo Baggins and Gandalf 
 update movies set actors = array_append(actors, 'Samuel L. Jackson') where title = 'Pulp Fiction';
 
 
+-- Text search
+select title, synopsis from movies where synopsis ilike '%Bilbo%';
+select title, synopsis from movies where synopsis ilike '%Gandalf%';
+    -- not like operation https://www.postgresql.org/docs/8.3/functions-matching.html
+select title, synopsis from movies where synopsis ilike '%Bilbo%' and synopsis not ilike '%Gandalf%';
+select title, synopsis from movies where franchise = 'The Hobbit';
+select title, synopsis from movies where synopsis ilike '%gold%' and synopsis ilike '%dragon%';
