@@ -1,0 +1,16 @@
+-- Creating movies table
+create table movies(id serial primary key, title varchar(255), writer varchar(100), year int, actors varchar(100)[], franchise varchar(50), synopsis text);
+
+-- Inserts
+insert into movies(title, writer, year, actors) values ('Fight Club', 'Chuck Palahniuk', 1999, '{"Brad Pitt", "Edward Norton"}') ,('Pulp Fiction', 'Quentin Tarantino', 1994, '{"John Travolta", "Uma Thurman"}'),('Inglorious Basterds', 'Quentin Tarantino', 2009, '{"Brad Pitt", "Diane Kruger", "Eli Roth"}' );
+insert into movies(title, writer, year, franchise) values ('The Hobbit: An Unexpected Journey', 'J.R.R. Tolkein', 2019, 'The Hobbit'), ('The Hobbit: The Desolation of Smaug', 'J.R.R. Tolein',2013, 'The Hobbit')
+insert into movies(title, writer, year, franchise, synopsis) values ('The Hobbit: The Battle of the Five Armies', 'J.R.R. Tolkein', 2012, 'The Hobbit', 'Bilbo and Company are forced to engage in a war against an array of combatants and keep the Lonely Mountain from falling into the hands of a rising darkness.');
+insert into movies(title) values ('Pee Wee Herman''s Big Adventure'),('Avatar');
+
+-- Selects
+select * from movies;
+select * from movies where writer = 'Quentin Tarantino';
+select * from movies where actors @> '{"Brad Pitt"}';
+select * from movies where franchise = 'The Hobbit';
+select * from movies where year >= 1990 and year < 2000;
+select * from movies where year < 2000 or year > 2010;

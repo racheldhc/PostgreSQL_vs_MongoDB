@@ -100,5 +100,52 @@ MONGO
 
 
 
-
+POSTGRES
+3) Query / Find Documents
+1. get all documents 
+    id |                   title                   |      writer       | year |                 actors                  | franchise  |                                                                           synopsis                                                                            
+    ----+-------------------------------------------+-------------------+------+-----------------------------------------+------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------
+    1 | Fight Club                                | Chuck Palahniuk   | 1999 | {"Brad Pitt","Edward Norton"}           |            | 
+    2 | Pulp Fiction                              | Quentin Tarantino | 1994 | {"John Travolta","Uma Thurman"}         |            | 
+    3 | Inglorious Basterds                       | Quentin Tarantino | 2009 | {"Brad Pitt","Diane Kruger","Eli Roth"} |            | 
+    4 | The Hobbit: An Unexpected Journey         | J.R.R. Tolkein    | 2019 |                                         | The Hobbit | 
+    5 | The Hobbit: The Desolation of Smaug       | J.R.R. Tolein     | 2013 |                                         | The Hobbit | 
+    6 | The Hobbit: The Battle of the Five Armies | J.R.R. Tolkein    | 2012 |                                         | The Hobbit | Bilbo and Company are forced to engage in a war against an array of combatants and keep the Lonely Mountain from falling into the hands of a rising darkness.
+    7 | Pee Wee Herman's Big Adventure            |                   |      |                                         |            | 
+    8 | Avatar                                    |                   |      |                                         |            | 
+    (8 rows)
+2. get all documents with `writer` set to "Quentin Tarantino" 
+     id |        title        |      writer       | year |                 actors                  | franchise | synopsis 
+    ----+---------------------+-------------------+------+-----------------------------------------+-----------+----------
+    2 | Pulp Fiction        | Quentin Tarantino | 1994 | {"John Travolta","Uma Thurman"}         |           | 
+    3 | Inglorious Basterds | Quentin Tarantino | 2009 | {"Brad Pitt","Diane Kruger","Eli Roth"} |           | 
+    (2 rows)
+3. get all documents where `actors` include "Brad Pitt" 
+    id |        title        |      writer       | year |                 actors                  | franchise | synopsis 
+    ----+---------------------+-------------------+------+-----------------------------------------+-----------+----------
+    1 | Fight Club          | Chuck Palahniuk   | 1999 | {"Brad Pitt","Edward Norton"}           |           | 
+    3 | Inglorious Basterds | Quentin Tarantino | 2009 | {"Brad Pitt","Diane Kruger","Eli Roth"} |           | 
+    (2 rows)
+4. get all documents with `franchise` set to "The Hobbit" 
+    id |                   title                   |     writer     | year | actors | franchise  |                                                                           synopsis                                                                            
+    ----+-------------------------------------------+----------------+------+--------+------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------
+    4 | The Hobbit: An Unexpected Journey         | J.R.R. Tolkein | 2019 |        | The Hobbit | 
+    5 | The Hobbit: The Desolation of Smaug       | J.R.R. Tolein  | 2013 |        | The Hobbit | 
+    6 | The Hobbit: The Battle of the Five Armies | J.R.R. Tolkein | 2012 |        | The Hobbit | Bilbo and Company are forced to engage in a war against an array of combatants and keep the Lonely Mountain from falling into the hands of a rising darkness.
+    (3 rows)
+5. get all movies released in the 90s 
+    id |    title     |      writer       | year |             actors              | franchise | synopsis 
+    ----+--------------+-------------------+------+---------------------------------+-----------+----------
+    1 | Fight Club   | Chuck Palahniuk   | 1999 | {"Brad Pitt","Edward Norton"}   |           | 
+    2 | Pulp Fiction | Quentin Tarantino | 1994 | {"John Travolta","Uma Thurman"} |           | 
+    (2 rows)
+6. get all movies released before the year 2000 or after 2010
+    id |                   title                   |      writer       | year |             actors              | franchise  |                                                                           synopsis                                                                            
+    ----+-------------------------------------------+-------------------+------+---------------------------------+------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------
+    1 | Fight Club                                | Chuck Palahniuk   | 1999 | {"Brad Pitt","Edward Norton"}   |            | 
+    2 | Pulp Fiction                              | Quentin Tarantino | 1994 | {"John Travolta","Uma Thurman"} |            | 
+    4 | The Hobbit: An Unexpected Journey         | J.R.R. Tolkein    | 2019 |                                 | The Hobbit | 
+    5 | The Hobbit: The Desolation of Smaug       | J.R.R. Tolein     | 2013 |                                 | The Hobbit | 
+    6 | The Hobbit: The Battle of the Five Armies | J.R.R. Tolkein    | 2012 |                                 | The Hobbit | Bilbo and Company are forced to engage in a war against an array of combatants and keep the Lonely Mountain from falling into the hands of a rising darkness.
+    (5 rows)
 
