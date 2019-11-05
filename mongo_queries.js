@@ -25,7 +25,8 @@ db.movies.update({title : "Pulp Fiction"}, {$addToSet : {actors : "Samuel L. Jac
 // Text Searches
 db.movies.find({synopsis : /Bilbo/})
 db.movies.find({synopsis : /Gandalf/})
-    // synopsis includes bilbo but not gandalf
+// Ashley helped my with the structure, was trying to do it in the same structure as the rest
+db.movies.find({$and : [{synopsis : /Bilbo/}, {synopsis : {$not : /Gandalf/}}]})
 db.movies.find({synopsis : {$in : [/dwarves/, /hobbit/]}})
 db.movies.find({synopsis : {$all : [/gold/, /dragon/]}})
 
@@ -60,4 +61,5 @@ db.posts.find({username: "GoodGuyGreg"})
 db.posts.find({username: "ScumbagSteve"})
 db.comments.find()
 db.comments.find({username: "GoodGuyGreg"})
-var test = db.posts.find({title : "Reports a bug in your code"})
+// dbrefs https://stackoverflow.com/questions/6195286/how-to-query-mongodb-with-dbref
+db.comments.find({"post.$id" : ObjectId("5db9b847821cbb57895f9a07")})
