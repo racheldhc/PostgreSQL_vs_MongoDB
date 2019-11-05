@@ -48,7 +48,8 @@ MONGO
 2. find all movies that have a synopsis that contains the word "Gandalf" 
     { "_id" : ObjectId("5db42b57821cbb57895f99fd"), "title" : "The Hobbit: The Desolation of Smaug", "writer" : "J.R.R Tolkein", "year" : 2013, "franchise" : "The Hobbit", "synopsis" : "The dwarves, along with Bilbo Baggins and Gandalf the Grey, continue their quest to reclaim Erebor, their homeland, from Smaug. Bilbo Baggins is in possession of a mysterious and magical ring." }
 3. find all movies that have a synopsis that contains the word "Bilbo" and not the word "Gandalf" 
-
+    { "_id" : ObjectId("5db42ad2821cbb57895f99fc"), "title" : "The Hobbit: An Unexpected Journey", "writer" : "J.R.R Tolkein", "year" : 2012, "franchise" : "The Hobbit", "synopsis" : "A reluctant hobbit, Bilbo Baggins, sets out to the Lonely Mountain with a spirited group of dwarves to reclaim their mountain home - and the gold within it - from the dragon Smaug." }
+    { "_id" : ObjectId("5db42b85821cbb57895f99fe"), "title" : "The Hobbit: The Battle of the Five Armies", "writer" : "J.R.R Tolkein", "year" : 2012, "franchise" : "The Hobbit", "synopsis" : "Bilbo and Company are forced to engage in a war against an array of combatants and keep the Lonely Mountain from falling into the hands of a rising darkness." }
 4. find all movies that have a synopsis that contains the word "dwarves" or "hobbit" 
     { "_id" : ObjectId("5db42ad2821cbb57895f99fc"), "title" : "The Hobbit: An Unexpected Journey", "writer" : "J.R.R Tolkein", "year" : 2012, "franchise" : "The Hobbit", "synopsis" : "A reluctant hobbit, Bilbo Baggins, sets out to the Lonely Mountain with a spirited group of dwarves to reclaim their mountain home - and the gold within it - from the dragon Smaug." }
     { "_id" : ObjectId("5db42b57821cbb57895f99fd"), "title" : "The Hobbit: The Desolation of Smaug", "writer" : "J.R.R Tolkein", "year" : 2013, "franchise" : "The Hobbit", "synopsis" : "The dwarves, along with Bilbo Baggins and Gandalf the Grey, continue their quest to reclaim Erebor, their homeland, from Smaug. Bilbo Baggins is in possession of a mysterious and magical ring." }   
@@ -94,7 +95,7 @@ MONGO
     { "_id" : ObjectId("5db9bdf8821cbb57895f9a0f"), "username" : "ScumbagSteve", "comment" : "It still isn't clean", "post" : { "$ref" : "posts", "id" : ObjectId("5db9b647821cbb57895f9a05") } }
     { "_id" : ObjectId("5db9beae821cbb57895f9a10"), "username" : "ScumbagSteve", "comment" : "Denied your PR cause I found a hack", "post" : { "$ref" : "posts", "id" : ObjectId("5db9b847821cbb57895f9a07") } }
 8. find all comments belonging to the post "Reports a bug in your code"
-
+{ "_id" : ObjectId("5dc1d14be0c35b7080b1832b"), "username" : "ScumbagSteve", "comment" : "Denied your PR cause I found a hack", "post" : DBRef("posts", ObjectId("5db9b847821cbb57895f9a07")) }
 
 
 
