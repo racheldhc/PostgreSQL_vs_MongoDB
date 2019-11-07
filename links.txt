@@ -1,1 +1,5 @@
+youtube
+https://youtu.be/txeB1y4jZgU
 
+github
+https://github.com/racheldhc/PostgreSQL_vs_MongoDB.git

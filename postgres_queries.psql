@@ -27,13 +27,13 @@ select title, synopsis from movies where synopsis ilike '%Bilbo%';
 select title, synopsis from movies where synopsis ilike '%Gandalf%';
     -- not like operation https://www.postgresql.org/docs/8.3/functions-matching.html
 select title, synopsis from movies where synopsis ilike '%Bilbo%' and synopsis not ilike '%Gandalf%';
-select title, synopsis from movies where franchise = 'The Hobbit';
+select title, synopsis from movies where franchise ilike '%dwarves%' and synopsis ilike '%hobbit%';
 select title, synopsis from movies where synopsis ilike '%gold%' and synopsis ilike '%dragon%';
 
 
 -- Deletes
 delete from movies where title = 'Pee Wee Herman''s Big Adventure';
-
+delete from movies where title = 'Avatar';
 
 -- Create and add to users table
 create table users(username varchar(50) primary key, first_name varchar (50), last_name varchar(50));
